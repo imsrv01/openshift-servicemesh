@@ -1,0 +1,15 @@
+- name: Install kiali Operator
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'subs-kiali.yml.j2') }}"
+
+- name: Wait for kiali CRD to exist
+  k8s_info:
+    api_version: "apiextensions.k8s.io/v1"
+    kind: CustomResourceDefinition
+    name: "{{ item }}"
+  loop: "{{ kiali_expected_crds }}"
+  register: crds
+  until: crds.resources|length > 0
+  retries: 30
+  delay: 10

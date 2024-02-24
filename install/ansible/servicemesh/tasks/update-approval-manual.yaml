@@ -1,0 +1,33 @@
+
+- name: Jaeger - Update install plan approval to Manual
+  k8s:
+    definition:
+      apiVersion: operators.coreos.com/v1alpha1
+      kind: Subscription
+      metadata:
+        name: jaeger-product
+        namespace: openshift-distributed-tracing
+      spec:
+        installPlanApproval: Manual
+
+- name: Kiali - Update install plan approval to Manual
+  k8s:
+    definition:
+      apiVersion: operators.coreos.com/v1alpha1
+      kind: Subscription
+      metadata:
+        name: kiali-ossm
+        namespace: openshift-operators
+      spec:
+        installPlanApproval: Manual
+
+- name: Service mesh - Update install plan approval to Manual
+  k8s:
+    definition:
+      apiVersion: operators.coreos.com/v1alpha1
+      kind: Subscription
+      metadata:
+        name: servicemeshoperator
+        namespace: openshift-operators
+      spec:
+        installPlanApproval: Manual

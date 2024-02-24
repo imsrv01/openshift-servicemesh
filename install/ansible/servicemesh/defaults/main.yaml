@@ -1,0 +1,10 @@
+servicemesh_expected_crds:
+- servicemeshcontrolplanes.maistra.io
+- servicemeshmembers.maistra.io
+- servicemeshmemberrolls.maistra.io
+
+kiali_expected_crds:
+- kialis.kiali.io
+
+jaeger_expected_crds:
+- jaegers.jaegertracing.io

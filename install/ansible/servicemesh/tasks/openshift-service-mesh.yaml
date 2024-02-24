@@ -1,0 +1,15 @@
+- name: Install openshift service mesh Operator
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'subs-servicemesh.yml.j2') }}"
+
+- name: Wait for service mesh CRD to exist
+  k8s_info:
+    api_version: "apiextensions.k8s.io/v1"
+    kind: CustomResourceDefinition
+    name: "{{ item }}"
+  loop: "{{ servicemesh_expected_crds }}"
+  register: crds
+  until: crds.resources|length > 0
+  retries: 30
+  delay: 10

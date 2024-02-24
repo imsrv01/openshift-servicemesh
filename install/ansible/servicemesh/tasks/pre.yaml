@@ -1,0 +1,10 @@
+- name: Create Namespaces
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'namespaces.yml.j2') }}"
+
+- name: Create Operator Group
+  k8s:
+    state: present
+    definition: "{{ lookup('file', 'operator-group.yaml') }}"
+    wait: yes

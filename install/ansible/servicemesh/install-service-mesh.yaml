@@ -1,0 +1,7 @@
+---
+- name: Install OpenShift service mesh
+  hosts: localhost
+  tasks:
+  - name: install OpenShift service mesh
+    import_role:
+      name: service-mesh

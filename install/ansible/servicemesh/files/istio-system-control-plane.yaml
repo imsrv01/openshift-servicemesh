@@ -28,3 +28,4 @@ spec:
   telemetry:
     type: Istiod
   version: v2.4
+

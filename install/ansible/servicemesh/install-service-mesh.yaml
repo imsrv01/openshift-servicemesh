@@ -4,4 +4,4 @@
   tasks:
   - name: install OpenShift service mesh
     import_role:
-      name: service-mesh
+      name: servicemesh

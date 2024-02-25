@@ -3,5 +3,4 @@
 - import_tasks: openshift-distributed-tracing.yaml
 - import_tasks: kiali.yaml
 - import_tasks: openshift-service-mesh.yaml
-- import_tasks: update-approval-manual.yaml
 - import_tasks: post.yaml

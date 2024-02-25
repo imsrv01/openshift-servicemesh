@@ -5,6 +5,11 @@ metadata:
   namespace: istio-system
 spec:
   version: v2.4
+  security:
+    identity:
+      type: ThirdParty
+      thirdParty:
+        audience: istio-ca  
   tracing:
     type: Jaeger
     sampling: 10000

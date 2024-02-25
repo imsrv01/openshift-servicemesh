@@ -1,0 +1,5 @@
+- name: Create Operator Group
+  k8s:
+    state: present
+    definition: "{{ lookup('file', 'istio-system-control-plane.yaml) }}"
+    wait: yes

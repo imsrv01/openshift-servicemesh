@@ -4,23 +4,27 @@ metadata:
   name: basic
   namespace: istio-system
 spec:
-  version: v2.4
   security:
     identity:
       type: ThirdParty
       thirdParty:
-        audience: istio-ca  
+        audience: istio-ca
   tracing:
     type: Jaeger
     sampling: 10000
+  policy:
+    type: Istiod
   addons:
+    grafana:
+      enabled: true
     jaeger:
-      name: jaeger
       install:
         storage:
           type: Memory
     kiali:
       enabled: true
-      name: kiali
-    grafana:
+    prometheus:
       enabled: true
+  telemetry:
+    type: Istiod
+  version: v2.4

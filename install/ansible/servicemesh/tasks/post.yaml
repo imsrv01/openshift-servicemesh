@@ -1,4 +1,4 @@
-- name: Create Operator Group
+- name: Create control plane
   k8s:
     state: present
     definition: "{{ lookup('file', 'istio-system-control-plane.yaml) }}"
